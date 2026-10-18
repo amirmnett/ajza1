@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>روش‌های آزمایشگاهی تحلیل تنش</title>
+    <link href="https://cdn.jsdelivr.net/gh/rastikerdar/vazirmatn@v33.0.0/Vazirmatn-font-face.css" rel="stylesheet" type="text/css" />
+    <style>
+        :root {
+            --primary-color: #1e3a8a;
+            --secondary-color: #3b82f6;
+            --bg-color: #f8fafc;
+            --card-bg: #ffffff;
+            --text-dark: #1e293b;
+            --text-light: #475569;
+        }
+
+        body {
+            font-family: 'Vazirmatn', sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-dark);
+            line-height: 1.8;
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: white;
+            padding: 4rem 2rem;
+            text-align: center;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+        }
+
+        header h1 {
+            margin: 0 0 1rem 0;
+            font-size: 2.5rem;
+            font-weight: 800;
+        }
+
+        header p {
+            font-size: 1.1rem;
+            opacity: 0.9;
+            margin: 0;
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: -3rem auto 3rem auto;
+            padding: 0 1.5rem;
+            display: grid;
+            gap: 2.5rem;
+            position: relative;
+        }
+
+        .method-card {
+            background: var(--card-bg);
+            border-radius: 16px;
+            padding: 2.5rem;
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s ease;
+            border-top: 4px solid var(--secondary-color);
+        }
+
+        .method-card:hover {
+            transform: translateY(-3px);
+        }
+
+        .method-card h2 {
+            color: var(--primary-color);
+            margin-top: 0;
+            font-size: 1.8rem;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            border-bottom: 2px solid #e2e8f0;
+            padding-bottom: 10px;
+        }
+
+        .method-card h2::before {
+            content: "■";
+            color: var(--secondary-color);
+            font-size: 1.2rem;
+        }
+
+        .method-card p {
+            color: var(--text-light);
+            font-size: 1.05rem;
+            text-align: justify;
+            margin-bottom: 1rem;
+        }
+
+        .highlight-box {
+            background-color: #eff6ff;
+            border-right: 4px solid var(--secondary-color);
+            padding: 1rem 1.5rem;
+            margin-top: 1.5rem;
+            border-radius: 8px 0 0 8px;
+            font-weight: 500;
+            color: var(--primary-color);
+            font-size: 0.95rem;
+            direction: rtl;
+        }
+
+        .math-symbol {
+            font-family: Arial, sans-serif;
+            font-weight: bold;
+            color: var(--primary-color);
+            background: #f1f5f9;
+            padding: 2px 6px;
+            border-radius: 4px;
+            display: inline-block;
+            direction: ltr;
+        }
+
+        .image-gallery {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        .image-card {
+            flex: 1 1 calc(50% - 1.5rem);
+            display: flex;
+            flex-direction: column;
+            background: #f1f5f9;
+            border-radius: 12px;
+            overflow: hidden;
+        }
+
+        .image-card img {
+            width: 100%;
+            height: 280px;
+            object-fit: cover;
+            border-bottom: 3px solid var(--secondary-color);
+            background-color: #fff;
+        }
+
+        .image-caption {
+            padding: 0.8rem;
+            text-align: center;
+            font-size: 0.9rem;
+            color: var(--text-light);
+            font-weight: bold;
+        }
+
+        footer {
+            text-align: center;
+            padding: 2rem;
+            color: var(--text-light);
+            font-size: 0.9rem;
+            background-color: #e2e8f0;
+        }
+
+        @media (max-width: 768px) {
+            header h1 { font-size: 1.8rem; }
+            .method-card { padding: 1.5rem; }
+            .image-card { flex: 1 1 100%; }
+            .image-card img { height: auto; aspect-ratio: 4/3; }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>روش‌های آزمایشگاهی تحلیل تنش قطعات مکانیکی</h1>
+        <p>پژوهشگر: امیر مصطفی نعمت‌الهی | دانشگاه علم و صنعت ایران</p>
+    </header>
+
+    <main class="container">
+        <!-- مقدمه -->
+        <div style="background: white; padding: 2rem; border-radius: 12px; box-shadow: 0 4px 6px rgba(0,0,0,0.05); text-align: justify;">
+            <p style="margin: 0; color: #475569;">
+                <strong>مقدمه:</strong> در حالی که امروزه نرم‌افزارهای المان محدود (FEA) نظیر Abaqus، ANSYS و SolidWorks ابزارهای اصلی و قدرتمند در تحلیل المان‌های ماشین و طراحی اجزا محسوب می‌شوند، اتکای صرف به شبیه‌سازی کامپیوتری کافی نیست. روش‌های آزمایشگاهی تحلیل تنش نه‌تنها برای صحت‌سنجی (Validation) نتایج مش‌بندی‌های عددی حیاتی هستند، بلکه در شرایطی که مدل‌سازی دقیق شرایط مرزی، اصطکاک یا متریال پیچیده در نرم‌افزار امکان‌پذیر نیست، به عنوان منبع اصلی استخراج داده‌های واقعی به کار می‌روند. در این پژوهش به بررسی سه روش اصلی فوتوالاستیسیته، پوشش ترد و کرنش‌سنج الکتریکی می‌پردازیم.
+            </p>
+        </div>
+
+        <!-- روش اول -->
+        <section class="method-card">
+            <h2>روش فوتوالاستیسیته (Photoelasticity)</h2>
+            <p>
+                فوتوالاستیسیته یک روش اپتیکی (نوری) تمام‌میدان (Full-field) برای مشاهده و اندازه‌گیری توزیع تنش در قطعات است. اساس کار این روش بر پایه پدیده <strong>شکست مضاعف موقت (Temporary Birefringence)</strong> در مواد پلیمری و شفاف (مانند رزین‌های اپوکسی یا پلی‌کربنات‌ها) است. هنگامی که یک قطعه شفاف ساخته شده از این مواد تحت بارگذاری قرار می‌گیرد، ضریب شکست نور در امتداد تنش‌های اصلی تغییر می‌کند.
+            </p>
+            <p>
+                برای انجام آزمایش، مدل پلاستیکی را در دستگاهی به نام <strong>پلاریسکوپ (Polariscope)</strong> قرار می‌دهند. با عبور نور قطبیده (پلاریزه) از قطعه تحت بار، دو دسته خطوط یا حاشیه‌های نوری ظاهر می‌شود: <br>
+                ۱. <strong>ایزوکروماتیک‌ها (Isochromatics):</strong> نوارهای رنگی (در نور سفید) یا تیره و روشن (در نور تک‌فام) که مکان هندسی نقاطی با <em>اختلاف تنش‌های اصلی برابر</em> <span class="math-symbol">(σ₁ - σ₂)</span> هستند.<br>
+                ۲. <strong>ایزوکلینیک‌ها (Isoclinics):</strong> نوارهای تاریکی که نشان‌دهنده <em>جهت تنش‌های اصلی</em> در قطعه می‌باشند.
+            </p>
+            
+            <div class="image-gallery">
+                <div class="image-card">
+                    <img src="photo-1.jpg" alt="الگوی فوتوالاستیسیته">
+                    <div class="image-caption">مشاهده خطوط ایزوکروماتیک در یک قطعه تحت بارگذاری</div>
+                </div>
+                <div class="image-card">
+                    <img src="photo-2.jpg" alt="ترتیب رنگ‌های حاشیه‌ای">
+                    <div class="image-caption">الگوی خطوط تنش در یک دیسک تحت فشار شعاعی</div>
+                </div>
+            </div>
+
+            <div class="highlight-box">
+                کاربرد اصلی: تحلیل بصری مناطق تمرکز تنش در هندسه‌های بسیار پیچیده (شیارها، سوراخ‌ها و چرخ‌دنده‌ها) پیش از ساخت قطعه اصلی فلزی.
+            </div>
+        </section>
+
+        <!-- روش دوم -->
+        <section class="method-card">
+            <h2>روش پوشش ترد / لاک (Brittle Coating)</h2>
+            <p>
+                روش پوشش ترد، یکی از تکنیک‌های نیمه‌مخرب و تجربی است که برای تشخیص سریع نقاط بحرانی و جهت‌گیری تنش‌ها بر روی سطح قطعات واقعی (با هر جنس و هندسه‌ای) به کار می‌رود. در این روش، لایه‌ای بسیار نازک از یک لاک یا رزین مخصوص روی سطح قطعه اسپری می‌شود. پس از خشک شدن، قطعه واقعی تحت بار مکانیکی قرار می‌گیرد.
+            </p>
+            <p>
+                از آنجا که لاک استفاده شده خاصیت تردی بسیار بالایی دارد، با رسیدن قطعه به یک حد کرنش خاص (آستانه حساسیت لاک)، روی سطح لاک <strong>ترک‌های مویی (Micro-cracks)</strong> ایجاد می‌شود. نکته حیاتی مهندسی این است که این ترک‌ها همواره <strong>دقیقاً عمود بر جهت تنش کششی اصلی اول <span class="math-symbol">(σ₁)</span></strong> باز می‌شوند. 
+            </p>
+
+            <div class="image-gallery">
+                <div class="image-card">
+                    <img src="brittle-1.png" alt="تمرکز تنش در روش لاک ترد">
+                    <div class="image-caption">توزیع تنش و ترک‌ها در اطراف سوراخ‌ها و مناطق تمرکز تنش</div>
+                </div>
+            </div>
+
+            <div class="highlight-box">
+                کاربرد اصلی: یافتن سریع نقطه دقیق (Hot-spot) و راستای اعمال تنش روی پوسته‌های پیچیده فلزی، تا مهندس بداند استرین‌گیج را دقیقاً در کجا باید نصب کند.
+            </div>
+        </section>
+
+        <!-- روش سوم -->
+        <section class="method-card">
+            <h2>روش کرنش‌سنج الکتریکی (Electrical Strain Gauge)</h2>
+            <p>
+                استرین‌گیج یا کرنش‌سنج، دقیق‌ترین و پرکاربردترین سنسور در مهندسی مکانیک تجربی است. اساس کار این روش بر پایه رابطه بین تغییر طول فیزیکی یک هادی الکتریکی و تغییر مقاومت الکتریکی آن است. سنسور متشکل از یک شبکه مارپیچ از فویل فلزی بسیار نازک است که روی یک لایه عایق قرار دارد و با چسب مخصوص مستقیماً به سطح قطعه چسبانده می‌شود.
+            </p>
+            <p>
+                وقتی قطعه کشیده یا فشرده می‌شود، فویل فلزی نیز تغییر طول داده و مقاومت آن تغییر می‌کند <span class="math-symbol">(ΔR / R = GF × ε)</span>. در اینجا GF ضریب حساسیت کرنش‌سنج است. این تغییر مقاومت بسیار کوچک، توسط مداری به نام <strong>پل وتستون (Wheatstone Bridge)</strong> اندازه‌گیری می‌شود. در حالاتی که راستای تنش‌های اصلی مشخص نباشد، از یک کرنش‌سنج گل‌سرخی (Rosette) استفاده می‌کنند.
+            </p>
+
+            <div class="image-gallery">
+                <div class="image-card">
+                    <img src="strain-1.jpg" alt="کرنش سنج فویلی">
+                    <div class="image-caption">یک استرین‌گیج فویلی با سیم‌کشی خروجی که روی سطح نصب می‌شود</div>
+                </div>
+                <div class="image-card">
+                    <img src="strain-2.png" alt="نحوه کارکرد کرنش سنج">
+                    <div class="image-caption">شماتیک مدار پل وتستون برای اندازه‌گیری تغییرات مقاومت الکتریکی</div>
+                </div>
+            </div>
+
+            <div class="highlight-box">
+                کاربرد اصلی: اندازه‌گیری دقیق و نقطه‌ای مقادیر کرنش استاتیک و ارتعاشات دینامیک، پایش سلامت سازه‌ها (SHM) و ساخت حسگرهای وزن (لودسل).
+            </div>
+        </section>
+    </main>
+
+    <footer>
+       <p>تهیه شده برای درس طراحی اجزا / روش‌های آزمایشگاهی مکانیک</p>
+    </footer>
+
+</body>
+</html>
